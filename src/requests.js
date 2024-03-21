@@ -1,6 +1,7 @@
-export const getCatsLists = async () => {
+export const getCatsLists = async (params) => {
+  const { page, limit } = params;
   const res = await fetch(
-    `https://api.thecatapi.com/v1/images/search?limit=10`
+    `https://api.thecatapi.com/v1/images/search?limit=${limit}&page=${page}`
   );
 
   const data = await res.json();

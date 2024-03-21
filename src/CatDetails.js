@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getCatDetails } from "./requests";
 import { useParams } from "react-router-dom";
+import Loading from "./Loading";
 
 function CatDetails() {
   const { catId } = useParams();
@@ -17,7 +18,11 @@ function CatDetails() {
   }, [catId]);
 
   if (!catDetails) {
-    return <div>Loading...</div>;
+    return (
+      <div>
+        <Loading />
+      </div>
+    );
   }
 
   return (
