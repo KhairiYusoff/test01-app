@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getCatDetails } from "./requests";
 import { useParams } from "react-router-dom";
 import Loading from "./Loading";
+import { Link } from "react-router-dom";
 
 function CatDetails() {
   const { catId } = useParams();
@@ -27,11 +28,29 @@ function CatDetails() {
 
   return (
     <div className="cat-details">
-      <h1>{catDetails.breeds[0].name} Details</h1>
+      <br />
+      <Link to="/">HOME</Link>
+      {catDetails.breeds && catDetails.breeds[0] && (
+        <>
+          <h1>{catDetails.breeds[0].name} Details</h1>
+          <img
+            src={catDetails.url}
+            alt={`Cat ${catId}`}
+            width={500}
+            height={500}
+          />
+          <h3>Description: {catDetails.breeds[0].description}</h3>
+          <p>Origin: {catDetails.breeds[0].origin}</p>
+          <p>Life Span: {catDetails.breeds[0].life_span}</p>
+        </>
+      )}
+      {catDetails.categories && catDetails.categories[0] && (
+        <h1>{catDetails.categories[0].name} Details</h1>
+      )}
+      <h1>{catDetails.name} Details</h1>
       <img src={catDetails.url} alt={`Cat ${catId}`} width={500} height={500} />
-      <h3>Description: {catDetails.breeds[0].description}</h3>
-      <p>Origin: {catDetails.breeds[0].origin}</p>
-      <p>Life Span: {catDetails.breeds[0].life_span}</p>
+      <p>Width: {catDetails.width}</p>
+      <p>Height: {catDetails.height}</p>
     </div>
   );
 }

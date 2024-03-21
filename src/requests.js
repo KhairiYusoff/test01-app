@@ -9,8 +9,8 @@ export const getCatsLists = async (params) => {
   return data;
 };
 
-export const getCatDetails = async () => {
-  const res = await fetch(`https://api.thecatapi.com/v1/images/0XYvRd7oD`);
+export const getCatDetails = async (id) => {
+  const res = await fetch(`https://api.thecatapi.com/v1/images/${id}`);
 
   const data = await res.json();
 

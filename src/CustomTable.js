@@ -48,16 +48,13 @@ const CustomTable = ({
     pagination={{
       showSizeChanger: true,
       showQuickJumper: true,
+      total: 100,
       position: ["topRight", "bottomRight"],
       current: currentPage,
       pageSize: pageSize,
-      onChange: (current, size) => {
-        if (pageSize !== size) {
-          setCurrentPage(1);
-        } else {
-          setPageSize(current);
-        }
-        setCurrentPage(size);
+      onChange: (current, pageSize) => {
+        setCurrentPage(current);
+        setPageSize(pageSize);
       },
     }}
     loading={loading}
