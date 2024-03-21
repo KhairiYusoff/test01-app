@@ -23,8 +23,8 @@ function CatDetails() {
   return (
     <div className="cat-details">
       <h1>{catDetails.breeds[0].name} Details</h1>
-      <img src={catDetails.url} alt={`Cat ${catId}`} />
-      <p>Description: {catDetails.breeds[0].description}</p>
+      <img src={catDetails.url} alt={`Cat ${catId}`} width={500} height={500} />
+      <h3>Description: {catDetails.breeds[0].description}</h3>
       <p>Origin: {catDetails.breeds[0].origin}</p>
       <p>Life Span: {catDetails.breeds[0].life_span}</p>
     </div>
